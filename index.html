@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertanyaan Futsal Pelajar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .quiz-container {
+            padding: 40px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .question h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .option:hover {
+            background: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: #feca57;
+            border-color: #feca57;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1em;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            text-align: center;
+            padding: 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            display: none;
+        }
+
+        .score {
+            color: #ff6b6b;
+            font-size: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .quiz-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚽ KUIS FUTSAL PELAJAR ⚽</h1>
+            <p>Pertanyaan Futsal Pelajar - Soal Objektif</p>
+        </div>
+
+        <div class="quiz-container">
+            <form id="quizForm">
+                <div class="question">
+                    <h3>Soal 1</h3>
+                    <p>Siapa yang paling hebat main futsal di futsal pelajar?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a"> a. Iki Ronaldo
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b"> b. Abay Tuak
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c"> c. Adam Idris
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d"> d. Heru Ajlh
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Soal 2</h3>
+                    <p>Kiper futsal pelajar yang harat?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a"> a. Irul Wifi
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b"> b. Alif Ba Ta
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c"> c. Iki Maling
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="d"> d. Adam Idris
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="e"> e. Apis Gemoy
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Soal 3</h3>
+                    <p>Siapa yang harat pander tapi main galai?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a"> a. Ibnu Sidrap
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b"> b. Iki Jahit
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c"> c. Abay
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="d"> d. Sunyaan
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Jawaban</button>
+            </form>
+
+            <div id="result" class="result">
+                <div class="score" id="score">0/3</div>
+                <p>Selamat! Kuis selesai.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💪 Dibuat oleh <strong>Admin Futsal Pelajar</strong> 💪</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('quizForm');
+        const resultDiv = document.getElementById('result');
+        const scoreDiv = document.getElementById('score');
+
+        // Visual feedback untuk pilihan
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const answers = {
+                q1: formData.get('q1'),
+                q2: formData.get('q2'),
+                q3: formData.get('q3')
+            };
+
+            // Hitung skor (semua jawaban dianggap benar untuk demo)
+            const score = Object.values(answers).filter(answer => answer !== null).length;
+            
+            scoreDiv.textContent = `${score}/3`;
+            resultDiv.style.display = 'block';
+            form.style.display = 'none';
+            
+            // Scroll ke hasil
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
